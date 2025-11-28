@@ -5,7 +5,43 @@
     <title>DANH SÁCH ĐIỆN THOẠI</title>
 </head>
 <body>
-<script src="index.js">
+<script>
+    class DienThoai {
+        constructor(ma, ten, hang, gia) {
+            this._ma = ma;
+            this._ten = ten;
+            this._hang = hang;
+            this._gia = gia;
+        }
+        get ten() { return this._ten; }
+        formatGia() {
+            return this._gia.toLocaleString('vi-VN') + " VND";
+        }
+        toString() { return `Mã: ${this._ma}, Tên: ${this._ten}, Hãng: ${this._hang}, Giá: ${this.formatGia()}`; }
+    }
+
+    let danhSach = [
+        new DienThoai("SO01","Galaxy S21","Samsung",21000000),
+        new DienThoai("SO02","IPhone 17 ProMax","Apple",35000000),
+        new DienThoai("SO03","Nokia G22","Nokia",3400000),
+        new DienThoai("SO04","Xperia 5","Sony",24700000),
+    ];
+
+    function hienThi(ds){
+        ds.sort((a,b)=>a.ten.localeCompare(b.ten));
+        document.write("<ul>"+ds.map(dt=>`<li>${dt.toString()}</li>`).join("")+"</ul>");
+    }
+    function them(ds){
+        ds.push(new DienThoai(
+            prompt("Mã:"),
+            prompt("Tên:"),
+            prompt("Hãng:"),
+            parseFloat(prompt("Giá:"))
+        ));
+    }
+    hienThi(danhSach);
+    them(danhSach);
+    hienThi(danhSach);
 </script>
 </body>
 </html>
