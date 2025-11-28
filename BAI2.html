@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>ĐẾM KÝ TỰ IN HOA</title>
+</head>
+<body>
+<script>
+    function countUpperChars(str) {
+        let count = 0;
+        for (let i = 0; i < str.length; i++) {
+            let ch = str[i];
+            if (ch >= 'A' && ch <= 'Z') {
+                count++;
+            }
+        }
+        if (count > 0) {
+            return count;
+        } else {
+            return "The String does not contain upper char";
+        }
+    }
+    console.log(countUpperChars("abcdEF"));
+    console.log(countUpperChars("accdef"));
+</script>
+</body>
+</html>
