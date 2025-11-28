@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>HIỆU SỐ</title>
+</head>
+<body>
+<script>
+    let n = parseInt(prompt("Nhập số phần tử n (n <= 20):"));
+    if(n > 20 || n <= 0){
+        alert("Số phần tử không hợp lệ!");
+    } else {
+        let arr = [];
+        for(let i = 0; i < n; i++){
+            arr[i] = parseInt(prompt(`Nhập phần tử thứ ${i+1}:`));
+        }
+        document.write("Mảng vừa nhập: [" + arr.join(", ") + "]<br>");
+        let sumEven = 0;
+        let sumOdd = 0;
+        for(let i = 0; i < n; i++){
+            if(arr[i] % 2 === 0){
+                sumEven += arr[i];
+            } else {
+                sumOdd += arr[i];
+            }
+        }
+        let result = sumEven - sumOdd;
+        document.write(`Hiệu của tổng các số chẵn và tổng các số lẻ: (${sumEven}) - (${sumOdd}) = ${result}`);
+    }
+
+</script>
+</body>
+</html>
